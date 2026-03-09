@@ -1,51 +1,162 @@
-<!DOCTYPE html>
-<html lang="en">
+function checkStrength(){
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Security Password Strength Checker</title>
-<link rel="stylesheet" href="style.css">
-</head>
+let password=document.getElementById("password").value;
 
-<body>
+let result=document.getElementById("result");
 
-<div class="container">
+let bar=document.getElementById("strength-bar");
 
-<h2>Cyber Security Password Checker</h2>
+let strength=0;
 
-<div class="input-box">
-<input type="password" id="password" placeholder="Enter Password" onkeyup="checkStrength()">
-<button onclick="togglePassword()">Show</button>
-</div>
 
-<div class="strength-meter">
-<div id="strength-bar"></div>
-</div>
+if(password.length>=8){
 
-<p id="result"></p>
+document.getElementById("length").style.color="lime";
 
-<div class="requirements">
-<p id="length">✗ At least 8 characters</p>
-<p id="uppercase">✗ Contains uppercase letter</p>
-<p id="number">✗ Contains number</p>
-<p id="special">✗ Contains special character</p>
-</div>
+strength++;
 
-<button onclick="generatePassword()">Generate Strong Password</button>
+}
 
-<h3>Security Tips</h3>
+else{
 
-<ul>
-<li>✓ Use 8+ characters</li>
-<li>✓ Use uppercase and lowercase letters</li>
-<li>✓ Use numbers and special symbols</li>
-<li>✓ Avoid common passwords</li>
-</ul>
+document.getElementById("length").style.color="red";
 
-</div>
+}
 
-<script src="script.js"></script>
 
-</body>
-</html>
+if(/[A-Z]/.test(password)){
+
+document.getElementById("upper").style.color="lime";
+
+strength++;
+
+}
+
+else{
+
+document.getElementById("upper").style.color="red";
+
+}
+
+
+if(/[0-9]/.test(password)){
+
+document.getElementById("number").style.color="lime";
+
+strength++;
+
+}
+
+else{
+
+document.getElementById("number").style.color="red";
+
+}
+
+
+if(/[!@#$%^&*]/.test(password)){
+
+document.getElementById("special").style.color="lime";
+
+strength++;
+
+}
+
+else{
+
+document.getElementById("special").style.color="red";
+
+}
+
+
+if(strength==1){
+
+result.innerHTML="🔴 Weak Password (Crack time: seconds)";
+
+bar.style.width="25%";
+
+bar.style.background="red";
+
+}
+
+
+else if(strength==2){
+
+result.innerHTML="🟡 Medium Password (Crack time: hours)";
+
+bar.style.width="50%";
+
+bar.style.background="orange";
+
+}
+
+
+else if(strength==3){
+
+result.innerHTML="🟢 Strong Password (Crack time: years)";
+
+bar.style.width="75%";
+
+bar.style.background="yellow";
+
+}
+
+
+else if(strength==4){
+
+result.innerHTML="💪 Very Strong Password (Crack time: centuries)";
+
+bar.style.width="100%";
+
+bar.style.background="lime";
+
+}
+
+}
+
+
+
+function generatePassword(){
+
+let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+let password="";
+
+for(let i=0;i<12;i++){
+
+password+=chars.charAt(Math.floor(Math.random()*chars.length));
+
+}
+
+document.getElementById("password").value=password;
+
+}
+
+
+
+function checkMatch(){
+
+let password=document.getElementById("password").value;
+
+let confirm=document.getElementById("confirm").value;
+
+let match=document.getElementById("match");
+
+
+if(password===confirm){
+
+match.innerHTML="✔ Passwords Match";
+
+match.style.color="lime";
+
+}
+
+else{
+
+match.innerHTML="✖ Passwords Do Not Match";
+
+match.style.color="red";
+
+}
+
+}
