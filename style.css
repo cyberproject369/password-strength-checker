@@ -1,4 +1,3 @@
-
 body{
 font-family: Arial;
 background:#0f172a;
@@ -6,31 +5,38 @@ display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
+color:white;
 }
 
 .container{
-background:white;
+background:#1e293b;
 padding:30px;
 border-radius:10px;
 text-align:center;
-width:300px;
+width:350px;
 }
 
 input{
-width:90%;
+width:70%;
 padding:10px;
-margin:10px 0;
 }
 
 button{
-padding:10px 20px;
-background:#2563eb;
-color:white;
-border:none;
+padding:10px;
 cursor:pointer;
 }
 
-#result{
+.strength-meter{
+width:100%;
+height:10px;
+background:#444;
 margin-top:10px;
-font-weight:bold;
+border-radius:5px;
+}
+
+#strength-bar{
+height:10px;
+width:0%;
+background:red;
+border-radius:5px;
 }
