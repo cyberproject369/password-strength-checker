@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Password Security Checker</title>
+<title>Password Strength Checker</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,15 +15,14 @@
 
 <div class="container">
 
-<h1>🔐 Password Security Checker</h1>
-
-<p>Create a strong password</p>
+<h1>🔐 Password Strength Checker</h1>
 
 <input type="password" id="password" placeholder="Enter Password">
 
-<input type="password" id="confirm" placeholder="Confirm Password">
-
-<p id="match"></p>
+<div class="buttons">
+<button onclick="togglePassword()">Show Password</button>
+<button onclick="generatePassword()">Generate Password</button>
+</div>
 
 <div class="progress">
 <div id="strength-bar"></div>
@@ -33,23 +31,10 @@
 <p id="result"></p>
 
 <ul class="rules">
-
-<li id="length">❌ At least 8 characters</li>
-<li id="upper">❌ Contains uppercase letter</li>
-<li id="number">❌ Contains number</li>
-<li id="special">❌ Contains special character</li>
-
-</ul>
-
-<button onclick="generatePassword()">Generate Strong Password</button>
-
-<h3>Security Tips</h3>
-
-<ul class="tips">
-<li>Use 8+ characters</li>
-<li>Use uppercase and lowercase</li>
-<li>Use numbers and symbols</li>
-<li>Avoid common passwords</li>
+<li id="length">❌ Minimum 8 characters</li>
+<li id="upper">❌ Uppercase letter</li>
+<li id="number">❌ Number</li>
+<li id="special">❌ Special character</li>
 </ul>
 
 </div>
