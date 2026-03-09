@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Password Strength Checker</title>
+<title>Cyber Security Password Analyzer</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,13 +16,13 @@
 
 <div class="container">
 
-<h1>🔐 Password Strength Checker</h1>
+<h1>🔐 Cyber Security Password Analyzer</h1>
 
-<input type="password" id="password" placeholder="Enter Password">
+<input type="password" id="password" placeholder="Enter password">
 
 <div class="buttons">
-<button onclick="togglePassword()">Show Password</button>
-<button onclick="generatePassword()">Generate Password</button>
+<button onclick="togglePassword()">Show</button>
+<button onclick="generatePassword()">Generate</button>
 </div>
 
 <div class="progress">
@@ -29,13 +30,22 @@
 </div>
 
 <p id="result"></p>
+<p id="score"></p>
+<p id="entropy"></p>
+<p id="crack"></p>
+<p id="warning"></p>
 
 <ul class="rules">
-<li id="length">❌ Minimum 8 characters</li>
+<li id="length">❌ At least 8 characters</li>
 <li id="upper">❌ Uppercase letter</li>
 <li id="number">❌ Number</li>
 <li id="special">❌ Special character</li>
 </ul>
+
+<div class="terminal">
+<h3>Attack Simulation</h3>
+<pre id="terminal"></pre>
+</div>
 
 </div>
 
