@@ -1,71 +1,68 @@
-let password=document.getElementById("password");
-let confirm=document.getElementById("confirm");
+let passwordInput=document.getElementById("password");
 
-password.addEventListener("input",checkStrength);
-confirm.addEventListener("input",checkMatch);
+passwordInput.addEventListener("input",checkStrength);
 
 function checkStrength(){
 
-let pass=password.value;
+let password=passwordInput.value;
 
 let strength=0;
 
+let bar=document.getElementById("strength-bar");
 let result=document.getElementById("result");
 
-let bar=document.getElementById("strength-bar");
 
+if(password.length>=8){
 
-if(pass.length>=8){
-
-document.getElementById("length").innerHTML="✔ At least 8 characters";
+document.getElementById("length").innerHTML="✔ Minimum 8 characters";
 document.getElementById("length").style.color="lime";
 strength++;
 
 }else{
 
-document.getElementById("length").innerHTML="❌ At least 8 characters";
+document.getElementById("length").innerHTML="❌ Minimum 8 characters";
 document.getElementById("length").style.color="red";
 
 }
 
 
-if(/[A-Z]/.test(pass)){
+if(/[A-Z]/.test(password)){
 
-document.getElementById("upper").innerHTML="✔ Contains uppercase letter";
+document.getElementById("upper").innerHTML="✔ Uppercase letter";
 document.getElementById("upper").style.color="lime";
 strength++;
 
 }else{
 
-document.getElementById("upper").innerHTML="❌ Contains uppercase letter";
+document.getElementById("upper").innerHTML="❌ Uppercase letter";
 document.getElementById("upper").style.color="red";
 
 }
 
 
-if(/[0-9]/.test(pass)){
+if(/[0-9]/.test(password)){
 
-document.getElementById("number").innerHTML="✔ Contains number";
+document.getElementById("number").innerHTML="✔ Number";
 document.getElementById("number").style.color="lime";
 strength++;
 
 }else{
 
-document.getElementById("number").innerHTML="❌ Contains number";
+document.getElementById("number").innerHTML="❌ Number";
 document.getElementById("number").style.color="red";
 
 }
 
 
-if(/[!@#$%^&*]/.test(pass)){
+if(/[!@#$%^&*]/.test(password)){
 
-document.getElementById("special").innerHTML="✔ Contains special character";
+document.getElementById("special").innerHTML="✔ Special character";
 document.getElementById("special").style.color="lime";
 strength++;
 
 }else{
 
-document.getElementById("special").innerHTML="❌ Contains special character";
+document.getElementById("special").innerHTML="❌ Special character";
 document.getElementById("special").style.color="red";
 
 }
@@ -73,34 +70,48 @@ document.getElementById("special").style.color="red";
 
 if(strength<=1){
 
-result.innerHTML="🔴 Weak Password";
 bar.style.width="25%";
 bar.style.background="red";
+result.innerHTML="Weak Password";
 
 }
 
 else if(strength==2){
 
-result.innerHTML="🟡 Medium Password";
 bar.style.width="50%";
 bar.style.background="orange";
+result.innerHTML="Medium Password";
 
 }
 
 else if(strength==3){
 
-result.innerHTML="🟢 Strong Password";
 bar.style.width="75%";
 bar.style.background="yellow";
+result.innerHTML="Strong Password";
 
 }
 
 else if(strength==4){
 
-result.innerHTML="💪 Very Strong Password";
 bar.style.width="100%";
 bar.style.background="lime";
+result.innerHTML="Very Strong Password";
 
+}
+
+}
+
+
+function togglePassword(){
+
+let input=document.getElementById("password");
+
+if(input.type==="password"){
+input.type="text";
+}
+else{
+input.type="password";
 }
 
 }
@@ -110,35 +121,16 @@ function generatePassword(){
 
 let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
 
-let pass="";
+let password="";
 
 for(let i=0;i<12;i++){
 
-pass+=chars.charAt(Math.floor(Math.random()*chars.length));
+password+=chars.charAt(Math.floor(Math.random()*chars.length));
 
 }
 
-password.value=pass;
+passwordInput.value=password;
 
 checkStrength();
-
-}
-
-
-function checkMatch(){
-
-let match=document.getElementById("match");
-
-if(password.value===confirm.value){
-
-match.innerHTML="✔ Passwords Match";
-match.style.color="lime";
-
-}else{
-
-match.innerHTML="❌ Passwords Do Not Match";
-match.style.color="red";
-
-}
 
 }
