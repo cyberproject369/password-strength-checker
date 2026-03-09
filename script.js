@@ -1,100 +1,51 @@
-function checkStrength(){
+<!DOCTYPE html>
+<html lang="en">
 
-let password=document.getElementById("password").value
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Security Password Strength Checker</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-let result=document.getElementById("result")
-let bar=document.getElementById("strength-bar")
+<body>
 
-let length=document.getElementById("length")
-let uppercase=document.getElementById("uppercase")
-let number=document.getElementById("number")
-let special=document.getElementById("special")
+<div class="container">
 
-let strength=0
+<h2>Cyber Security Password Checker</h2>
 
-if(password.length>=8){
-length.innerHTML="✅ At least 8 characters"
-strength++
-}
-else{
-length.innerHTML="❌ At least 8 characters"
-}
+<div class="input-box">
+<input type="password" id="password" placeholder="Enter Password" onkeyup="checkStrength()">
+<button onclick="togglePassword()">Show</button>
+</div>
 
-if(/[A-Z]/.test(password)){
-uppercase.innerHTML="✅ Contains uppercase letter"
-strength++
-}
-else{
-uppercase.innerHTML="❌ Contains uppercase letter"
-}
+<div class="strength-meter">
+<div id="strength-bar"></div>
+</div>
 
-if(/[0-9]/.test(password)){
-number.innerHTML="✅ Contains number"
-strength++
-}
-else{
-number.innerHTML="❌ Contains number"
-}
+<p id="result"></p>
 
-if(/[!@#$%^&*]/.test(password)){
-special.innerHTML="✅ Contains special character"
-strength++
-}
-else{
-special.innerHTML="❌ Contains special character"
-}
+<div class="requirements">
+<p id="length">✗ At least 8 characters</p>
+<p id="uppercase">✗ Contains uppercase letter</p>
+<p id="number">✗ Contains number</p>
+<p id="special">✗ Contains special character</p>
+</div>
 
-if(strength<=1){
-result.innerHTML="❌ Weak Password 😟"
-bar.style.width="25%"
-bar.style.background="red"
-}
+<button onclick="generatePassword()">Generate Strong Password</button>
 
-else if(strength==2){
-result.innerHTML="⚠ Medium Password 😐"
-bar.style.width="50%"
-bar.style.background="orange"
-}
+<h3>Security Tips</h3>
 
-else if(strength==3){
-result.innerHTML="👍 Good Password 🙂"
-bar.style.width="75%"
-bar.style.background="yellow"
-}
+<ul>
+<li>✓ Use 8+ characters</li>
+<li>✓ Use uppercase and lowercase letters</li>
+<li>✓ Use numbers and special symbols</li>
+<li>✓ Avoid common passwords</li>
+</ul>
 
-else if(strength==4){
-result.innerHTML="💪 Strong Password 🔐"
-bar.style.width="100%"
-bar.style.background="green"
-}
+</div>
 
-}
+<script src="script.js"></script>
 
-function togglePassword(){
-
-let pass=document.getElementById("password")
-
-if(pass.type==="password"){
-pass.type="text"
-}
-else{
-pass.type="password"
-}
-
-}
-
-function generatePassword(){
-
-let chars="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
-
-let password=""
-
-for(let i=0;i<12;i++){
-password+=chars.charAt(Math.floor(Math.random()*chars.length))
-}
-
-document.getElementById("password").value=password
-
-checkStrength()
-
-}
+</body>
+</html>
