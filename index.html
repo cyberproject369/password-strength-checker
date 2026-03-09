@@ -4,43 +4,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Security Password Strength Checker</title>
+
+<title>Password Security Checker</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h2>Cyber Security Password Checker</h2>
+<h1>🔐 Password Security Checker</h1>
 
-<div class="input-box">
+<p>Create a strong password to protect your account.</p>
+
 <input type="password" id="password" placeholder="Enter Password" onkeyup="checkStrength()">
-<button onclick="togglePassword()">Show</button>
-</div>
 
-<div class="strength-meter">
+<input type="password" id="confirm" placeholder="Confirm Password" onkeyup="checkMatch()">
+
+<p id="match"></p>
+
+<div class="progress">
 <div id="strength-bar"></div>
 </div>
 
 <p id="result"></p>
 
-<div class="requirements">
-<p id="length">✗ At least 8 characters</p>
-<p id="uppercase">✗ Contains uppercase letter</p>
-<p id="number">✗ Contains number</p>
-<p id="special">✗ Contains special character</p>
-</div>
+<ul class="rules">
+
+<li id="length">• At least 8 characters</li>
+<li id="upper">• Contains uppercase letter</li>
+<li id="number">• Contains number</li>
+<li id="special">• Contains special character</li>
+
+</ul>
 
 <button onclick="generatePassword()">Generate Strong Password</button>
 
 <h3>Security Tips</h3>
 
-<ul>
-<li>✓ Use 8+ characters</li>
-<li>✓ Use uppercase and lowercase letters</li>
-<li>✓ Use numbers and special symbols</li>
-<li>✓ Avoid common passwords</li>
+<ul class="tips">
+<li>Use 8 or more characters</li>
+<li>Mix letters numbers and symbols</li>
+<li>Avoid common passwords</li>
+<li>Never reuse passwords</li>
 </ul>
 
 </div>
@@ -48,4 +56,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
