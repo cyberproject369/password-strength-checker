@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +9,16 @@
 
 <div class="container">
 
-<h2>Password Strength Checker</h2>
+<h2>Cyber Security Password Strength Checker</h2>
 
-<input type="password" id="password" placeholder="Enter Password">
+<div class="input-box">
+<input type="password" id="password" placeholder="Enter Password" onkeyup="checkStrength()">
+<button onclick="togglePassword()">Show</button>
+</div>
 
-<button onclick="checkStrength()">Check Password</button>
+<div class="strength-meter">
+<div id="strength-bar"></div>
+</div>
 
 <p id="result"></p>
 
