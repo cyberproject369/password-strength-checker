@@ -1,35 +1,51 @@
 body{
-font-family: Arial;
-background:#0f172a;
+font-family:Arial;
+background:black;
+color:#00ff9c;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-color:white;
 }
 
 .container{
-background:#1e293b;
+background:#111;
 padding:30px;
 border-radius:10px;
 text-align:center;
-width:350px;
+width:400px;
+box-shadow:0 0 15px #00ff9c;
+}
+
+h2{
+color:#00ff9c;
+}
+
+.input-box{
+display:flex;
+justify-content:center;
+gap:5px;
 }
 
 input{
-width:70%;
 padding:10px;
+width:70%;
+background:black;
+color:#00ff9c;
+border:1px solid #00ff9c;
 }
 
 button{
 padding:10px;
 cursor:pointer;
+background:#00ff9c;
+border:none;
 }
 
 .strength-meter{
 width:100%;
 height:10px;
-background:#444;
+background:#333;
 margin-top:10px;
 border-radius:5px;
 }
@@ -39,4 +55,13 @@ height:10px;
 width:0%;
 background:red;
 border-radius:5px;
+}
+
+.requirements{
+text-align:left;
+margin-top:10px;
+}
+
+ul{
+text-align:left;
 }
