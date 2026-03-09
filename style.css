@@ -1,51 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+body{
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Security Password Strength Checker</title>
-<link rel="stylesheet" href="style.css">
-</head>
+font-family:Arial;
 
-<body>
+background:linear-gradient(135deg,#141e30,#243b55);
 
-<div class="container">
+height:100vh;
 
-<h2>Cyber Security Password Checker</h2>
+display:flex;
 
-<div class="input-box">
-<input type="password" id="password" placeholder="Enter Password" onkeyup="checkStrength()">
-<button onclick="togglePassword()">Show</button>
-</div>
+justify-content:center;
 
-<div class="strength-meter">
-<div id="strength-bar"></div>
-</div>
+align-items:center;
 
-<p id="result"></p>
+color:white;
 
-<div class="requirements">
-<p id="length">✗ At least 8 characters</p>
-<p id="uppercase">✗ Contains uppercase letter</p>
-<p id="number">✗ Contains number</p>
-<p id="special">✗ Contains special character</p>
-</div>
+}
 
-<button onclick="generatePassword()">Generate Strong Password</button>
 
-<h3>Security Tips</h3>
+.container{
 
-<ul>
-<li>✓ Use 8+ characters</li>
-<li>✓ Use uppercase and lowercase letters</li>
-<li>✓ Use numbers and special symbols</li>
-<li>✓ Avoid common passwords</li>
-</ul>
+background:#1e1e2f;
 
-</div>
+padding:30px;
 
-<script src="script.js"></script>
+border-radius:12px;
 
-</body>
-</html>
+width:350px;
+
+text-align:center;
+
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+
+}
+
+
+input{
+
+width:90%;
+
+padding:10px;
+
+margin:10px 0;
+
+border-radius:5px;
+
+border:none;
+
+outline:none;
+
+}
+
+
+button{
+
+padding:10px 20px;
+
+background:#00c6ff;
+
+border:none;
+
+color:white;
+
+cursor:pointer;
+
+border-radius:5px;
+
+margin-top:10px;
+
+}
+
+
+button:hover{
+
+background:#0072ff;
+
+}
+
+
+.progress{
+
+width:100%;
+
+height:8px;
+
+background:#444;
+
+margin-top:10px;
+
+border-radius:5px;
+
+}
+
+
+#strength-bar{
+
+height:8px;
+
+width:0%;
+
+background:red;
+
+border-radius:5px;
+
+}
+
+
+.rules{
+
+text-align:left;
+
+font-size:14px;
+
+margin-top:10px;
+
+}
+
+
+.tips{
+
+text-align:left;
+
+font-size:13px;
+
+}
